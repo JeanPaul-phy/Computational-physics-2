@@ -1,0 +1,47 @@
+(*Posición de la partícula*)
+x[t_] := xp[t] + l Sin[\[Theta][t]];
+z[t_] := \[Alpha] xp[t]^2 - l Cos[\[Theta][t]];
+
+(*Velocidad de la partícula*)
+vx[t_] := D[x[t], t];
+vz[t_] := D[z[t], t];
+
+(*Energía cinética del sistema*)
+T1 = 1/2 m ((vx[t])^2 + (vz[t])^2) // Expand;
+T = T1 /. {xp'[t] -> 
+      v, \[Theta]'[t] -> \[Omega], \[Theta][t] -> \[Theta], 
+     xp[t] -> x} // FullSimplify;
+
+(*Energía potencial del sistema*)
+U = m g z[t] /. {xp[t] -> x, \[Theta][t] -> \[Theta]} // FullSimplify;
+
+(*Definir constantes*)
+SetAttributes[{l, m, g, \[Alpha]}, Constant];
+
+(*Definir Lagrangiano:L=T-U*)
+Ll = T - U // FullSimplify;
+
+L[x_, \[Theta]_, v_, \[Omega]_] := 1/2 m (v^2 (1 + 4 x^2 \[Alpha]^2) +
+      l^2 \[Omega]^2 + 
+      2 l v \[Omega] (Cos[\[Theta]] + 2 x \[Alpha] Sin[\[Theta]])) - 
+   m g (\[Alpha] x^2 - l Cos[\[Theta]]);
+
+(*Comprobación*)
+FullSimplify[Ll - L[x, \[Theta], v, \[Omega]]]
+
+(*Ecuciones de Euler-Lagrage*)
+L1 = Dt[D[L[x, \[Theta], v, \[Omega]], v], t] - 
+    D[L[x, \[Theta], v, \[Omega]], x] // Expand;
+LL1 = L1 /. {Dt[x, t] -> v, Dt[\[Theta], t] -> \[Omega], 
+    Dt[v, t] -> v1, Dt[\[Omega], t] -> \[Omega]1};
+Ecu1 = LL1 // FullSimplify;
+
+L2 = Dt[D[L[x, \[Theta], v, \[Omega]], \[Omega]], t] - 
+    D[L[x, \[Theta], v, \[Omega]], \[Theta]] // Expand;
+LL2 = L2 /. {Dt[x, t] -> v, Dt[\[Theta], t] -> \[Omega], 
+    Dt[v, t] -> v1, Dt[\[Omega], t] -> \[Omega]1};
+Ecu2 = LL2 // FullSimplify;
+
+
+(*Ecuaciones desacopladas*)
+Solve[Ecu1 == 0 && Ecu2 == 0, {v1, \[Omega]1}] // FullSimplify
