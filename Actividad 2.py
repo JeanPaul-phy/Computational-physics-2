@@ -1,5 +1,5 @@
 import numpy as np
-from numpy import sin, cos
+from numpy import sin,cos 
 import matplotlib
 #in case the compiler doesn't have the right version of matplotlib
 matplotlib.use('TkAgg')
@@ -14,10 +14,10 @@ k = 3.0
 l = 1.0
 m = 1.0
 M = 4.0
-
+ 
 # ----------------------------------------------------
 # Method parameters
-# ----------------------------------------------------
+# ---------------------------------------------------- 
 tmax = 20
 dt = 0.005
 STRIDE = 15
