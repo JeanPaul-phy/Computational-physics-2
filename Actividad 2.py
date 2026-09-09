@@ -78,7 +78,7 @@ y_bob = -l * np.cos(th)
 # ----------------------------------------------------------
 fig, ax = plt.subplots(figsize=(8, 5))
 x_max = x_cart.max() + l + 0.5
-ax.set(xlim=(-0.5, x_max), ylim=(-l - 0.7, 0.7), aspect="equal",
+ax.set(xlim=(-0.5, x_max), ylim=(-l - 0.7, 1.5), aspect="equal",
        title="Péndulo en Carro (RK4)")
 ax.title.set_fontsize(16)
 ax.tick_params(axis="both", labelsize=12)
