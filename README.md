@@ -18,6 +18,6 @@ This repository contains the solutions, code, and reports for the homework assig
 
 ## 📚 Referencias
 
-* Press, W. H., et al. *Numerical Recipes: The Art of Scientific Computing*. Cambridge University Press.
-* Pang, T. *An Introduction to Computational Physics*. Cambridge University Press.
+*Taylor, J. R. (2005). Classical Mechanics. University Science Books.
+*Landau, R. H., Páez, M. J., & Bordeianu, C. C. (2015). Computational Physics: Problem Solving with Python (3rd ed.). Wiley-VCH.
 * Documentación Oficial de [Wolfram Language](https://reference.wolfram.com/language/) y [NumPy](https://numpy.org/doc/).
