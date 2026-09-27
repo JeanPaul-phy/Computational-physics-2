@@ -18,8 +18,8 @@ T = 2*pi / om     # periodo de forzamiento
 # Initial conditions: grid (ensamble de orbitas para
 # poblar el atractor mas rapido que con una sola orbita)
 # -----------------------------------------------------
-x0_values = np.linspace(-1, 2, 40)
-v0_values = np.linspace(-0.5, 1.5, 5)
+x0_values = np.linspace(1, 1.8, 40)
+v0_values = np.linspace(-2, 2, 5)
 
 X0, V0 = np.meshgrid(x0_values, v0_values)
 x0_flat = X0.ravel()
